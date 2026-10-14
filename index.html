@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0c25">
+  <title>Tomato — Anime Streaming</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav-inner">
+      <a class="brand" href="#" aria-label="Tomato início"><span class="brand-icon">🍅</span><strong>Tomato</strong></a>
+      <nav class="main-nav">
+        <button class="nav-button active" id="homeBtn">⌂ <span>Início</span></button>
+        <button class="nav-button" id="libraryBtn">▣ <span>Minha Biblioteca</span></button>
+      </nav>
+      <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar anime..." autocomplete="off"></label>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <span class="trend-label">🔥 EM ALTA</span>
+        <h1 id="heroTitle">Doraemon: O Gato do Futuro</h1>
+        <div class="genre-tags" id="heroGenres"><span>Ação e Aventura</span><span>Animação</span><span>Comédia</span></div>
+        <p class="hero-description" id="heroDescription">Uma aventura divertida cheia de invenções e descobertas.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="heroWatch">▶ <span>Assistir Agora</span></button>
+          <button class="secondary-btn" id="heroInfo">ⓘ <span>Mais Informações</span></button>
+        </div>
+        <div class="hero-dots"><i class="selected"></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="trendingSection">
+      <div class="section-heading"><h2><span class="heading-icon">⌁</span> Em Alta Agora</h2><button class="text-link" id="viewAll">Ver Todos →</button></div>
+      <div class="anime-grid" id="animeGrid"></div>
+    </section>
+
+    <section class="content-section hidden" id="librarySection">
+      <div class="section-heading"><h2><span class="heading-icon">▣</span> Minha Biblioteca</h2><button class="text-link" id="backHome">← Voltar ao início</button></div>
+      <div class="anime-grid" id="libraryGrid"></div>
+      <p class="empty-message hidden" id="emptyLibrary">Sua biblioteca ainda está vazia. Use o botão de marcador em um anime para guardá-lo aqui.</p>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="modal-backdrop" data-close="detail"></div>
+    <article class="detail-panel">
+      <button class="close-btn" data-close="detail" aria-label="Fechar">×</button>
+      <img class="detail-cover" id="detailCover" alt="">
+      <div class="detail-body">
+        <span class="detail-kicker">DETALHES DO ANIME</span>
+        <h2 id="detailTitle"></h2>
+        <p class="detail-meta" id="detailMeta"></p>
+        <p id="detailDescription"></p>
+        <div class="detail-actions"><button class="primary-btn" id="detailWatch">▶ Assistir Agora</button><button class="secondary-btn" id="detailSave">＋ Minha Biblioteca</button></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="modal hidden" id="playerModal"
+     role="dialog" aria-modal="true" aria-label="Player de vídeo">
+
+  <div class="modal-backdrop" data-close="player"></div>
+
+  <section class="player-panel">
+    <div class="player-top">
+      <div>
+        <span class="live-dot"></span>
+        <strong id="playerTitle">Assistindo</strong>
+      </div>
+
+      <button class="close-btn"
+              data-close="player"
+              aria-label="Fechar">×</button>
+    </div>
+
+    <div class="youtube-container">
+      <iframe
+        id="youtubePlayer"
+        src=""
+        title="Player do Tomato Animes"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <p class="player-note" id="playerNote">
+      Se o vídeo não carregar, ele pode não permitir reprodução neste site.
+    </p>
+  </section>
+</div>
+
+  <footer><span class="brand-mini">🍅 Tomato</span><span>Interface demonstrativa para catálogo de animes.</span><span>Use apenas vídeos e links autorizados.</span></footer>
+  <script src="js/app.js"></script>
+
+<!-- PLAYER DE VÍDEO DO TOMATO ANIMES -->
+<section id="player-container" class="player-container" hidden>
+    <h2 id="player-title">Tomato Animes</h2>
+
+    <video
+        id="anime-player"
+        controls
+        playsinline
+        preload="metadata"
+    >
+        Seu navegador não suporta vídeos HTML5.
+    </video>
+
+    <p id="player-message">Selecione um anime.</p>
+
+    <button id="close-player" type="button">
+        Fechar player
+    </button>
+</section>
+
+</body>
+</html>
